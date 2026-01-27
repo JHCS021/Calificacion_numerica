@@ -23,30 +23,30 @@ class MainActivity : AppCompatActivity() {
 
             // 1. Verificación de campo vacío
             if (textoNota.isBlank()) {
-                etNota.error = "Campo obligatorio"
+                etNota.error = getString(R.string.error_campo_obligatorio)
                 return@setOnClickListener
             }
 
-            // 2. Conversión segura (evita cierres inesperados)
+            // 2. Conversión segura
             val nota = textoNota.toIntOrNull()
 
             // 3. Validación de rango (0 - 100)
             if (nota == null || nota !in 0..100) {
-                Toast.makeText(this, "Ingrese una nota válida entre 0 y 100", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.error_nota_invalida), Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
-            // 4. Lógica de calificación con asignación directa
-            val (letra, color) = when {
+            // 4. Lógica de calificación con colores de sistema
+            val (letra, colorRes) = when {
                 nota >= 90 -> "A" to android.R.color.holo_green_dark
                 nota >= 80 -> "B" to android.R.color.holo_blue_dark
                 nota >= 70 -> "C" to android.R.color.holo_orange_dark
                 else -> "F" to android.R.color.holo_red_dark
             }
 
-            // 5. Mostrar resultado con formato y color dinámico
-            tvResultado.text = "Resultado: $letra"
-            tvResultado.setTextColor(ContextCompat.getColor(this, color))
+            // 5. Mostrar resultado usando el recurso de string con formato
+            tvResultado.text = getString(R.string.resultado_formato, letra)
+            tvResultado.setTextColor(ContextCompat.getColor(this, colorRes))
         }
     }
 }

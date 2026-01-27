@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Calificación numérica</string>
+    <string name="nombre_estudiante">TU NOMBRE COMPLETO</string>
+    <string name="matricula_estudiante">Matrícula: 202X-XXXX</string>
+    <string name="hint_nota">Calificación (0 &#8211; 100)</string>
+    <string name="btn_calcular">CALCULAR RESULTADO</string>
+    <string name="resultado_inicial">Esperando nota&#8230;</string>
+    <string name="error_campo_obligatorio">Campo obligatorio</string>
+    <string name="error_nota_invalida">Ingrese una nota válida entre 0 y 100</string>
+    <string name="resultado_formato">Resultado: %1$s</string>
+    <string name="desc_foto_estudiante">Foto del estudiante</string>
 </resources>
